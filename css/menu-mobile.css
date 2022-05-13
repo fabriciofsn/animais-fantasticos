@@ -1,0 +1,112 @@
+[data-menu="btn"]{
+    display: none;
+}
+
+@media (max-width: 700px){
+    
+   
+
+    [data-menu="btn"]{
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: .5rem;
+        background-color: #222;
+        border: none;
+        padding: .5rem 1rem;
+        color: white;
+        text-transform: uppercase;
+        font-family: 'sora', monospace;
+        border-radius: 4px;
+        margin: .5rem;
+        cursor: pointer;
+        position: relative;
+    }
+
+    [data-menu="btn"] span{
+        display: block;
+        margin-top: 5px;
+        width: 20px;
+        height: 20px;
+        border-top: 2px solid white;
+    }
+
+    [data-menu="btn"] span::after{
+        content: '';
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-top: 2px solid white;
+        position: relative;
+        top: -15px;
+        transition: .3s;
+
+    }
+
+    [data-menu="btn"] span::before{
+        content: '';
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-top: 2px solid white;
+        margin-top: 5px;
+        transition: .3s;
+
+    }
+
+    [data-menu="btn"].active span{
+        border-top-color: transparent;
+    }
+
+    [data-menu="btn"].active span::before{
+        border-top-color: white;
+        transform: rotate(130deg);
+        position: relative;
+        top: -15px;
+        left: -5px;
+    }
+
+    [data-menu="btn"].active span::after{
+        border-top-color: white;
+        transform: rotate(-130deg);
+        position: relative;
+        top: -37px;
+        right: -10px;
+    }
+
+    #menu{
+        display: none;
+        position: absolute;
+        background-color: #fb5;
+        width: 100%;
+        max-width: 160px;
+        z-index: 200;
+        padding: 60px 0 20px 0;
+        top: 0;
+        box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, .3);
+    }
+
+    #menu.active{
+        display: block;
+        animation: show-right .3s forwards;
+    }
+
+    @keyframes show-right{
+        from{
+            opacity: 0;
+            transform: translate3d(-30px, 0, 0);
+        }
+        to{
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+
+    #dropdown{
+        position: static;
+        border: none;
+    }
+}
+
