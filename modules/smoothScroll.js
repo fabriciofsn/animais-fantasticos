@@ -18,4 +18,3 @@ export default function smoothScroll(){
         link.addEventListener('click', scrollToSection);
     })
 }
-
